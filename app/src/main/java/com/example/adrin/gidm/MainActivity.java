@@ -2,6 +2,7 @@ package com.example.adrin.gidm;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,12 +16,9 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, TestFragment.OnFragmentInteractionListener{
 
 
-    private String[] sectionTitles;
-    private DrawerLayout mDrawerLayout;
-    private ListView mDrawerList;
 
 
     @Override
@@ -48,19 +46,40 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+
+
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
 
-        } else if (id == R.id.nav_slideshow) {
+        // Create a new fragment and specify the planet to show based on position
+        Fragment fragment = new TestFragment();
+
+        // Insert the fragment by replacing any existing fragment
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.content_frame, fragment)
+                .commit();
+
+        // Highlight the selected item, update the title, and close the drawer
+        setTitle(item.getTitle());
+
+
+        if (id == R.id.mi_rutina) {
+            // Handle the camera action
+        } else if (id == R.id.rutinas) {
+
+        } else if (id == R.id.perfil) {
 
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+        
     }
 }

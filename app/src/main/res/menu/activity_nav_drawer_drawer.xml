@@ -3,15 +3,15 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/mi_rutina"
             android:icon="@drawable/mi_rutina_icono"
             android:title="Mi rutina" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/rutinas"
             android:icon="@drawable/rutinas_icono"
-            android:title="Rutina" />
+            android:title="Rutinas" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/perfil"
             android:icon="@drawable/perfil_icono"
             android:title="Perfil" />
 
