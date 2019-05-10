@@ -16,7 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, TestFragment.OnFragmentInteractionListener{
+        implements NavigationView.OnNavigationItemSelectedListener, TestFragment.OnFragmentInteractionListener, PerfilFragment.OnFragmentInteractionListener{
 
 
 
@@ -52,8 +52,17 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
 
-        // Create a new fragment and specify the planet to show based on position
         Fragment fragment = new TestFragment();
+
+        if (id == R.id.mi_rutina) {
+            // Handle the camera action
+        } else if (id == R.id.rutinas) {
+
+        } else if (id == R.id.perfil) {
+            fragment = new PerfilFragment();
+
+        }
+
 
         // Insert the fragment by replacing any existing fragment
         FragmentManager fragmentManager = getFragmentManager();
@@ -65,14 +74,6 @@ public class MainActivity extends AppCompatActivity
         setTitle(item.getTitle());
 
 
-        if (id == R.id.mi_rutina) {
-            // Handle the camera action
-        } else if (id == R.id.rutinas) {
-
-        } else if (id == R.id.perfil) {
-
-        }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -80,6 +81,6 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onFragmentInteraction(Uri uri) {
-        
+
     }
 }
