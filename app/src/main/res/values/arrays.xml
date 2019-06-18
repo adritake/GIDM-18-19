@@ -5,4 +5,26 @@
         <item>Rutinas</item>
         <item>Mi perfil</item>
     </string-array>
+
+    <string-array name="rutinas">
+        <item>Rutina 1</item>
+        <item>Rutina 2</item>
+        <item>Rutina 3</item>
+        <item>Rutina 4</item>
+        <item>Rutina 5</item>
+        <item>Rutina 6</item>
+        <item>Rutina 7</item>
+        <item>Rutina 8</item>
+        <item>Rutina 9</item>
+        <item>Rutina 10</item>
+        <item>Rutina 11</item>
+        <item>Rutina 12</item>
+    </string-array>
+
+    <string-array name="dias">
+        <item>Día 1</item>
+        <item>Día 2</item>
+        <item>Día 3</item>
+    </string-array>
+
 </resources>

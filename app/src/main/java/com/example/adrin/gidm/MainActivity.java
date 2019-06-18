@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.mi_rutina) {
             // Handle the camera action
         } else if (id == R.id.rutinas) {
-
+            fragment = new RutinasFragment();
         } else if (id == R.id.perfil) {
             fragment = new PerfilFragment();
 
@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.content_frame, fragment)
+                .addToBackStack( "tag" )
                 .commit();
 
         // Highlight the selected item, update the title, and close the drawer
