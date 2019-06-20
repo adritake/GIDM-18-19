@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import com.example.adrin.data.DBSim;
 
 
 /**
@@ -64,7 +66,19 @@ public class PerfilFragment extends android.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.perfil, container, false);
+
+        View perfilView = inflater.inflate(R.layout.perfil, container, false);
+
+        TextView nombreText = perfilView.findViewById(R.id.nombre);
+        nombreText.setText(DBSim.USER.getNombre());
+
+        TextView pesoText = perfilView.findViewById(R.id.pesoVar);
+        pesoText.setText(DBSim.USER.getPeso() + " kg");
+
+        TextView alturaText = perfilView.findViewById(R.id.alturaVar);
+        alturaText.setText(DBSim.USER.getAltura() + " cm");
+
+        return perfilView;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

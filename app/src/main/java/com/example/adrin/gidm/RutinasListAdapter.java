@@ -9,8 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.adrin.data.DBSim;
 import com.example.adrin.data.Rutina;
-import com.example.adrin.data.User;
 
 import java.util.ArrayList;
 
@@ -38,7 +38,7 @@ public class RutinasListAdapter extends ArrayAdapter<Rutina> {
         startButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                User.RUTINAACTIVA = User.MISRUTINAS.get(p);
+                DBSim.RUTINAACTIVA = DBSim.MISRUTINAS.get(p);
 
                 FragmentManager fragmentManager = context.getFragmentManager();
                 fragmentManager.beginTransaction()

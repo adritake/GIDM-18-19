@@ -1,17 +1,14 @@
 package com.example.adrin.gidm;
 
 import android.app.ListFragment;
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Toast;
 
-import com.example.adrin.data.User;
+import com.example.adrin.data.DBSim;
 
 
 public class MiRutinaFragment extends ListFragment implements AdapterView.OnItemClickListener {
@@ -27,7 +24,7 @@ public class MiRutinaFragment extends ListFragment implements AdapterView.OnItem
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        DiasListAdapter adapter = new DiasListAdapter(getActivity(), User.RUTINAACTIVA.getDias());
+        DiasListAdapter adapter = new DiasListAdapter(getActivity(), DBSim.RUTINAACTIVA.getDias());
         setListAdapter(adapter);
         getListView().setOnItemClickListener(this);
 

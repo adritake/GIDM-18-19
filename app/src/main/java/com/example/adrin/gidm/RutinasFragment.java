@@ -1,19 +1,14 @@
 package com.example.adrin.gidm;
 
 import android.app.ListFragment;
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.adrin.data.User;
+import com.example.adrin.data.DBSim;
 
 
 public class RutinasFragment extends ListFragment implements AdapterView.OnItemClickListener {
@@ -27,7 +22,7 @@ public class RutinasFragment extends ListFragment implements AdapterView.OnItemC
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        RutinasListAdapter adapter = new RutinasListAdapter(getActivity(), User.MISRUTINAS);
+        RutinasListAdapter adapter = new RutinasListAdapter(getActivity(), DBSim.MISRUTINAS);
         setListAdapter(adapter);
         getListView().setOnItemClickListener(this);
 

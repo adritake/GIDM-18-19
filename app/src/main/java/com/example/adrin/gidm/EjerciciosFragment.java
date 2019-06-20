@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Toast;
 
-import com.example.adrin.data.User;
+import com.example.adrin.data.DBSim;
 
 public class EjerciciosFragment extends ListFragment implements AdapterView.OnItemClickListener {
 
@@ -29,7 +29,7 @@ public class EjerciciosFragment extends ListFragment implements AdapterView.OnIt
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        EjerciciosListAdapter adapter = new EjerciciosListAdapter(getActivity(), User.RUTINAACTIVA.getDias().get(dia).getEjercicios());
+        EjerciciosListAdapter adapter = new EjerciciosListAdapter(getActivity(), DBSim.RUTINAACTIVA.getDias().get(dia).getEjercicios());
         setListAdapter(adapter);
         getListView().setOnItemClickListener(this);
 
