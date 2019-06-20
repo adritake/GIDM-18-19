@@ -1,24 +1,27 @@
 package com.example.adrin.gidm;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
+import com.example.adrin.data.Day;
 
-public class DiasListAdapter extends ArrayAdapter<String> {
+import java.util.ArrayList;
+
+public class DiasListAdapter extends ArrayAdapter<Day> {
 
 
-    private String[] nombresDias;
+    private ArrayList<Day> dias;
     private Activity context;
 
-    public DiasListAdapter(Activity context, String[] nombres) {
-        super(context, R.layout.dia, nombres);
+    public DiasListAdapter(Activity context, ArrayList<Day> dias) {
+        super(context, R.layout.dia, dias);
         this.context = context;
-        this.nombresDias = nombres;
+        this.dias = dias;
     }
 
     public View getView(int position, View view, ViewGroup parent) {
@@ -32,13 +35,17 @@ public class DiasListAdapter extends ArrayAdapter<String> {
         final int p = position;
         startButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast.makeText(context,"Pulsado: " + nombresDias[p], Toast.LENGTH_SHORT).show();
+                FragmentManager fragmentManager = context.getFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.content_frame, new EjerciciosFragment(p))
+                        .addToBackStack( "tag" )
+                        .commit();
 
             }
         });
-        titleText.setText(nombresDias[position]);
+        titleText.setText(dias.get(position).getNombreDia());
 
         return rowView;
 
-    };
+    }
 }

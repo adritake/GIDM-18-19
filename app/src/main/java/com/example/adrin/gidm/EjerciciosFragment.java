@@ -1,10 +1,8 @@
 package com.example.adrin.gidm;
 
+import android.annotation.SuppressLint;
 import android.app.ListFragment;
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,21 +11,25 @@ import android.widget.Toast;
 
 import com.example.adrin.data.User;
 
+public class EjerciciosFragment extends ListFragment implements AdapterView.OnItemClickListener {
 
-public class MiRutinaFragment extends ListFragment implements AdapterView.OnItemClickListener {
+    private int dia;
 
-
+    @SuppressLint("ValidFragment")
+    public EjerciciosFragment(int dia){
+        this.dia = dia;
+    }
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.dias, container, false);
+        View view = inflater.inflate(R.layout.ejercicios, container, false);
         return view;
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        DiasListAdapter adapter = new DiasListAdapter(getActivity(), User.RUTINAACTIVA.getDias());
+        EjerciciosListAdapter adapter = new EjerciciosListAdapter(getActivity(), User.RUTINAACTIVA.getDias().get(dia).getEjercicios());
         setListAdapter(adapter);
         getListView().setOnItemClickListener(this);
 

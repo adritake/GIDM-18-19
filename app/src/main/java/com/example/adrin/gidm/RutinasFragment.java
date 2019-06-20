@@ -13,6 +13,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.adrin.data.User;
+
 
 public class RutinasFragment extends ListFragment implements AdapterView.OnItemClickListener {
     @Override
@@ -25,7 +27,7 @@ public class RutinasFragment extends ListFragment implements AdapterView.OnItemC
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        RutinasListAdapter adapter = new RutinasListAdapter(getActivity(),getResources().getStringArray(R.array.rutinas));
+        RutinasListAdapter adapter = new RutinasListAdapter(getActivity(), User.MISRUTINAS);
         setListAdapter(adapter);
         getListView().setOnItemClickListener(this);
 

@@ -9,16 +9,21 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class RutinasListAdapter extends ArrayAdapter<String> {
+import com.example.adrin.data.Rutina;
+import com.example.adrin.data.User;
+
+import java.util.ArrayList;
+
+public class RutinasListAdapter extends ArrayAdapter<Rutina> {
 
 
-    private String[] nombresRutinas;
+    private ArrayList<Rutina> rutinas;
     private Activity context;
 
-    public RutinasListAdapter(Activity context, String[] nombres) {
-        super(context, R.layout.rutina, nombres);
+    public RutinasListAdapter(Activity context, ArrayList<Rutina> rutinas) {
+        super(context, R.layout.rutina, rutinas);
         this.context = context;
-        this.nombresRutinas = nombres;
+        this.rutinas = rutinas;
     }
 
     public View getView(int position, View view, ViewGroup parent) {
@@ -32,6 +37,9 @@ public class RutinasListAdapter extends ArrayAdapter<String> {
         final int p = position;
         startButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
+                User.RUTINAACTIVA = User.MISRUTINAS.get(p);
+
                 FragmentManager fragmentManager = context.getFragmentManager();
                 fragmentManager.beginTransaction()
                         .replace(R.id.content_frame, new DiasFragment())
@@ -40,7 +48,7 @@ public class RutinasListAdapter extends ArrayAdapter<String> {
 
             }
         });
-        titleText.setText(nombresRutinas[position]);
+        titleText.setText(rutinas.get(position).getNombreRutina());
 
         return rowView;
 

@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity
         Fragment fragment = new TestFragment();
 
         if (id == R.id.mi_rutina) {
-            // Handle the camera action
+            fragment = new MiRutinaFragment();
         } else if (id == R.id.rutinas) {
             fragment = new RutinasFragment();
         } else if (id == R.id.perfil) {
