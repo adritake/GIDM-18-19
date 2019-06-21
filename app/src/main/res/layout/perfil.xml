@@ -62,7 +62,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginLeft="28dp"
         android:layout_marginTop="24dp"
-        android:text="Peso -"
+        android:text="Peso(kg) -"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/datosText" />
@@ -74,7 +74,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginLeft="28dp"
         android:layout_marginTop="24dp"
-        android:text="Altura -"
+        android:text="Altura(cm) -"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pesoText" />
@@ -86,7 +86,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="24dp"
-        android:text="0kg"
+        android:text="0"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintStart_toEndOf="@+id/pesoText"
         app:layout_constraintTop_toBottomOf="@+id/datosText" />
@@ -98,8 +98,88 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="24dp"
-        android:text="0cm"
+        android:text="0"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintStart_toEndOf="@+id/alturaText"
         app:layout_constraintTop_toBottomOf="@+id/pesoText" />
+
+    <TextView
+        android:id="@+id/textKG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="24dp"
+        android:text="kg"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@+id/editPeso"
+        app:layout_constraintTop_toBottomOf="@+id/datosText" />
+
+    <TextView
+        android:id="@+id/textCM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="24dp"
+        android:text="cm"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@+id/editAltura"
+        app:layout_constraintTop_toBottomOf="@+id/pesoText" />
+
+    <ImageButton
+        android:id="@+id/editButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toEndOf="@+id/datosText"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:srcCompat="@drawable/edit_icono"
+        tools:ignore="VectorDrawableCompat" />
+
+    <EditText
+        android:id="@+id/editPeso"
+        android:layout_width="116dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toEndOf="@+id/pesoText"
+        app:layout_constraintTop_toBottomOf="@+id/datosText"
+        android:visibility="gone"/>
+
+    <EditText
+        android:id="@+id/editAltura"
+        android:layout_width="109dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toEndOf="@+id/alturaText"
+        app:layout_constraintTop_toBottomOf="@+id/pesoText"
+        android:visibility="gone"/>
+
+    <ImageButton
+        android:id="@+id/doneEditButton"
+        android:layout_width="28dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toEndOf="@+id/datosText"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:srcCompat="@drawable/done_edit_icono"
+        tools:ignore="VectorDrawableCompat"
+        android:visibility="gone"/>
+
 </android.support.constraint.ConstraintLayout>
