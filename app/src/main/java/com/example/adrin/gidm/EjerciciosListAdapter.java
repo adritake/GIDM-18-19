@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,11 +19,13 @@ public class EjerciciosListAdapter extends ArrayAdapter<Exercise> {
 
     private ArrayList<Exercise> ejercicios;
     private Activity context;
+    private int n_serie;
 
     public EjerciciosListAdapter(Activity context, ArrayList<Exercise> ejercicios) {
         super(context, R.layout.dia, ejercicios);
         this.context = context;
         this.ejercicios = ejercicios;
+        this.n_serie = 0;
     }
 
     public View getView(int position, View view, ViewGroup parent) {
@@ -41,6 +44,10 @@ public class EjerciciosListAdapter extends ArrayAdapter<Exercise> {
             }
         });
         titleText.setText(ejercicios.get(p).getNombreEjercicio());
+
+
+        ListView listaSeries = rowView.findViewById(R.id.list_serie);
+        listaSeries.setAdapter(new SubexerciseListAdapter(context, ejercicios.get(p).getSeries().get(n_serie).getSerie()));
 
         return rowView;
 

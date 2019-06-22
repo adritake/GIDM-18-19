@@ -1,5 +1,7 @@
 package com.example.adrin.data;
 
+import android.util.Pair;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Vector;
@@ -17,18 +19,29 @@ public class DBSim {
         // Creación de rutina activa
         ArrayList<Exercise> ejerciciosTest = new ArrayList<>();
 
-        Vector<Vector<Integer>> series = new Vector<>();
-        Integer[] reps = {10,12};
-        series.add(new Vector<>(Arrays.asList(reps)));
-        series.add(new Vector<>(Arrays.asList(reps)));
+        ArrayList<Subexercise> vector_serie = new ArrayList<>();
+        Subexercise e1 = new Subexercise(12,20.0);
+        Subexercise e2 = new Subexercise(10,25.0);
+        Subexercise e3 = new Subexercise(8,30.0);
+        vector_serie.add(e1);
+        vector_serie.add(e2);
+        vector_serie.add(e3);
 
-        Vector<Vector<Integer>> trabajo = new Vector<>();
-        Integer[] tra = {5,7};
-        trabajo.add(new Vector<>(Arrays.asList(tra)));
-        trabajo.add(new Vector<>(Arrays.asList(tra)));
 
-        Exercise ejercicioCarga = new Exercise("carga", 1,"Ejercicio de carga 1", "Descripción de ejercicio de carga", series,trabajo);
-        Exercise ejercicioTiempo = new Exercise("tiempo", 1, "Ejercicio de tiempo 1", "Descripción de ejercicio de carga", series,trabajo);
+        Set serie1 = new Set(vector_serie);
+        Set serie2 = new Set(vector_serie);
+        Set serie3 = new Set(vector_serie);
+
+
+        Vector<Set> series = new Vector<>();
+        series.add(serie1);
+        series.add(serie2);
+        series.add(serie3);
+
+
+        Exercise ejercicioCarga = new Exercise("carga", 1,"Ejercicio de carga 1", "Descripción de ejercicio de carga", series);
+        Exercise ejercicioTiempo = new Exercise("tiempo", 1, "Ejercicio de tiempo 1", "Descripción de ejercicio de carga", series);
+
         ejerciciosTest.add(ejercicioCarga);
         ejerciciosTest.add(ejercicioTiempo);
         ejerciciosTest.add(ejercicioCarga);
