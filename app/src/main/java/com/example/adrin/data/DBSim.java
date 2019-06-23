@@ -11,9 +11,9 @@ import java.util.Vector;
  */
 public class DBSim {
 
-    public static User USER = new User("adritake", "Adrián de la Torre Rodríguez",74, 174);
-    public static Rutina RUTINAACTIVA;
-    public static ArrayList<Rutina> MISRUTINAS;
+    private static User USER = new User("adritake", "Adrián de la Torre Rodríguez",74, 174);
+    private static Rutina RUTINAACTIVA;
+    private static ArrayList<Rutina> MISRUTINAS;
 
     static {
         // Creación de rutina activa
@@ -79,5 +79,24 @@ public class DBSim {
 
     }
 
+    public static User getUSER(){
+        return USER;
+    }
+
+    public static Rutina getRUTINAACTIVA(){
+        return new Rutina(RUTINAACTIVA);
+    }
+
+    public static void setRUTINAACTIVA(Rutina rutina){
+        RUTINAACTIVA = new Rutina(rutina);
+    }
+
+    public static ArrayList<Rutina> getMISRUTINAS(){
+        ArrayList<Rutina> mr = new ArrayList<>();
+        for(Rutina r: MISRUTINAS){
+            mr.add(new Rutina(r));
+        }
+        return mr;
+    }
 
 }

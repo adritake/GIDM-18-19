@@ -20,6 +20,12 @@ public class User {
         this.peso = 0;
         this.altura = 0;
     }
+    public User(User usuario){
+        this.userName = usuario.getUserName();
+        this.nombre = usuario.getNombre();
+        this.peso = usuario.getPeso();
+        this.altura = usuario.getAltura();
+    }
 
     public String getUserName() {
         return userName;

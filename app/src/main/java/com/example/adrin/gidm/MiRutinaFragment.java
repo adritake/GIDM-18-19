@@ -24,7 +24,7 @@ public class MiRutinaFragment extends ListFragment implements AdapterView.OnItem
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        DiasListAdapter adapter = new DiasListAdapter(getActivity(), DBSim.RUTINAACTIVA.getDias());
+        DiasListAdapter adapter = new DiasListAdapter(getActivity(), DBSim.getRUTINAACTIVA().getDias());
         setListAdapter(adapter);
         getListView().setOnItemClickListener(this);
 

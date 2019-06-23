@@ -9,6 +9,8 @@ public class Exercise {
     private String nombreEjercicio;
     private String descripcion;
     private Vector<Set> series;
+    private boolean activo;
+    private int serieActual;
 
 
 
@@ -18,7 +20,8 @@ public class Exercise {
         this.nombreEjercicio = nombreEjercicio;
         this.descripcion = descripcion;
         this.series = series;
-
+        this.activo = false;
+        this.serieActual = 0;
     }
     public Exercise(String tipo, int n_maquina, String nombreEjercicio, String descripcion, Vector<Set> series, Vector<Vector<Integer>> trabajo) {
         this.tipo = tipo;
@@ -26,14 +29,32 @@ public class Exercise {
         this.nombreEjercicio = nombreEjercicio;
         this.descripcion = descripcion;
         this.series = series;
+        this.activo = false;
+        this.serieActual = 0;
 
     }
 
     public Exercise() {
         this.tipo = "";
         this.n_maquina = -1;
+        this.nombreEjercicio = "";
         this.descripcion = "";
         this.series = new Vector<>();
+        this.activo = false;
+        this.serieActual = 0;
+
+    }
+    public Exercise( Exercise ejercicio) {
+        this.tipo = ejercicio.getTipo();
+        this.n_maquina = ejercicio.getN_maquina();
+        this.nombreEjercicio = ejercicio.getNombreEjercicio();
+        this.descripcion = ejercicio.getDescripcion();
+        this.series = new Vector<>();
+        for(Set s: ejercicio.getSeries()){
+            series.add(new Set(s));
+        }
+        this.activo = ejercicio.isActivo();
+        this.serieActual = ejercicio.getSerieActual();
 
     }
 
@@ -79,7 +100,25 @@ public class Exercise {
     }
 
 
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+
+    public int getNSeries(){
+        return series.size();
+    }
 
 
+    public int getSerieActual() {
+        return serieActual;
+    }
+
+    public void incrementaSerie(){
+        serieActual++;
+    }
 
 }

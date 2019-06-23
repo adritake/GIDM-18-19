@@ -38,7 +38,7 @@ public class RutinasListAdapter extends ArrayAdapter<Rutina> {
         startButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                DBSim.RUTINAACTIVA = DBSim.MISRUTINAS.get(p);
+                DBSim.setRUTINAACTIVA(DBSim.getMISRUTINAS().get(p));
 
                 FragmentManager fragmentManager = context.getFragmentManager();
                 fragmentManager.beginTransaction()

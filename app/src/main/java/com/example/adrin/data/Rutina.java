@@ -20,6 +20,15 @@ public class Rutina {
         this.descripcion = descripcion;
     }
 
+    public Rutina(Rutina rutina){
+        this.dias = new ArrayList<>();
+        for(Day d: rutina.getDias()){
+            dias.add(new Day(d));
+        }
+        this.nombreRutina = rutina.getNombreRutina();
+        this.descripcion = rutina.getDescripcion();
+    }
+
     public ArrayList<Day> getDias() {
         return dias;
     }

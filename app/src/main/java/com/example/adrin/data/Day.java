@@ -18,6 +18,14 @@ public class Day {
         this.ejercicios = null;
     }
 
+    public Day (Day dia){
+        this.nombreDia = dia.getNombreDia();
+        this.ejercicios = new ArrayList<>();
+        for(Exercise e: dia.getEjercicios()){
+            ejercicios.add(new Exercise(e));
+        }
+    }
+
     public String getNombreDia() {
         return nombreDia;
     }

@@ -74,20 +74,20 @@ public class PerfilFragment extends android.app.Fragment {
         View perfilView = inflater.inflate(R.layout.perfil, container, false);
 
         TextView nombreText = perfilView.findViewById(R.id.nombre);
-        nombreText.setText(DBSim.USER.getNombre());
+        nombreText.setText(DBSim.getUSER().getNombre());
 
         final TextView pesoText = perfilView.findViewById(R.id.pesoVar);
-        pesoText.setText(String.valueOf(DBSim.USER.getPeso()));
+        pesoText.setText(String.valueOf(DBSim.getUSER().getPeso()));
 
         final TextView alturaText = perfilView.findViewById(R.id.alturaVar);
-        alturaText.setText(String.valueOf(DBSim.USER.getAltura()));
+        alturaText.setText(String.valueOf(DBSim.getUSER().getAltura()));
 
         final TextView textKG = perfilView.findViewById(R.id.textKG);
         final TextView textCM = perfilView.findViewById(R.id.textCM);
         final TextView editAltura = perfilView.findViewById(R.id.editAltura);
-        editAltura.setText(String.valueOf(DBSim.USER.getAltura()));
+        editAltura.setText(String.valueOf(DBSim.getUSER().getAltura()));
         final TextView editPeso = perfilView.findViewById(R.id.editPeso);
-        editPeso.setText(String.valueOf(DBSim.USER.getPeso()));
+        editPeso.setText(String.valueOf(DBSim.getUSER().getPeso()));
         final ImageButton doneEdit = perfilView.findViewById(R.id.doneEditButton);
         final ImageButton editPerfil = perfilView.findViewById(R.id.editButton);
 
@@ -111,8 +111,8 @@ public class PerfilFragment extends android.app.Fragment {
             public void onClick(View v) {
 
                 if(!editAltura.getText().toString().isEmpty() && !editPeso.getText().toString().isEmpty()) {
-                    DBSim.USER.setAltura(Double.parseDouble(editAltura.getText().toString()));
-                    DBSim.USER.setPeso(Double.parseDouble(editPeso.getText().toString()));
+                    DBSim.getUSER().setAltura(Double.parseDouble(editAltura.getText().toString()));
+                    DBSim.getUSER().setPeso(Double.parseDouble(editPeso.getText().toString()));
                     pesoText.setText(editPeso.getText());
                     alturaText.setText(editAltura.getText());
                 }

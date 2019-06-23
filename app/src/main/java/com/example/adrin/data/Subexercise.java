@@ -13,6 +13,10 @@ public class Subexercise {
         this.cantidad = cantidad;
         this.carga = carga;
     }
+    public Subexercise(Subexercise subejercicio){
+        this.cantidad = subejercicio.getCantidad();
+        this.carga = subejercicio.getCarga();
+    }
 
 
     public int getCantidad() {

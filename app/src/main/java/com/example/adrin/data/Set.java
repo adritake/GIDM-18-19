@@ -13,6 +13,12 @@ public class Set {
     public Set(){
         serie = new ArrayList<>();
     }
+    public Set(Set newSerie){
+        serie = new ArrayList<>();
+        for(Subexercise s: newSerie.getSerie()){
+            serie.add(new Subexercise(s));
+        }
+    }
 
     public Set (ArrayList<Subexercise> serie){
         this.serie = serie;

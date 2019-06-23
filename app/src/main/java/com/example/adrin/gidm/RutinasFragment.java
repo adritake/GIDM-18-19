@@ -22,7 +22,7 @@ public class RutinasFragment extends ListFragment implements AdapterView.OnItemC
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        RutinasListAdapter adapter = new RutinasListAdapter(getActivity(), DBSim.MISRUTINAS);
+        RutinasListAdapter adapter = new RutinasListAdapter(getActivity(), DBSim.getMISRUTINAS());
         setListAdapter(adapter);
         getListView().setOnItemClickListener(this);
 

@@ -29,7 +29,7 @@ public class EjerciciosFragment extends ListFragment implements AdapterView.OnIt
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        EjerciciosListAdapter adapter = new EjerciciosListAdapter(getActivity(), DBSim.RUTINAACTIVA.getDias().get(dia).getEjercicios());
+        EjerciciosListAdapter adapter = new EjerciciosListAdapter(getActivity(), DBSim.getRUTINAACTIVA().getDias().get(dia).getEjercicios());
         setListAdapter(adapter);
         getListView().setOnItemClickListener(this);
 
@@ -37,6 +37,6 @@ public class EjerciciosFragment extends ListFragment implements AdapterView.OnIt
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position,long id) {
-        Toast.makeText(getActivity(), "Item: " + position, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), "¡Ejercicio finalizado!", Toast.LENGTH_SHORT).show();
     }
 }
