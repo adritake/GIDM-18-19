@@ -42,7 +42,9 @@ public class EjerciciosListAdapter extends ArrayAdapter<Exercise> {
 
         final TextView nombreEjercicio = rowView.findViewById(R.id.nombreEjercicio);
         final ImageButton doneButton = rowView.findViewById(R.id.doneButton);
-
+        final TextView cabeceraCantidad = rowView.findViewById(R.id.text_cabecera_cantidad);
+        cabeceraCantidad.setText(ejercicio.getTipo());
+        final TextView cabeceraReps = rowView.findViewById(R.id.text_cabecera_reps);
 
 
         final TextView contador = rowView.findViewById(R.id.Text_contador_series);
@@ -64,7 +66,10 @@ public class EjerciciosListAdapter extends ArrayAdapter<Exercise> {
                     doneButton.setVisibility(View.GONE);
                     contador.setVisibility(View.GONE);
                     listaSeries.setVisibility(View.GONE);
+                    cabeceraCantidad.setVisibility(View.GONE);
+                    cabeceraReps.setVisibility(View.GONE);
                     imagenHecho.setVisibility(View.VISIBLE);
+
                 }
             }
         });
@@ -77,6 +82,8 @@ public class EjerciciosListAdapter extends ArrayAdapter<Exercise> {
             doneButton.setVisibility(View.GONE);
             contador.setVisibility(View.GONE);
             listaSeries.setVisibility(View.GONE);
+            cabeceraCantidad.setVisibility(View.GONE);
+            cabeceraReps.setVisibility(View.GONE);
             imagenHecho.setVisibility(View.VISIBLE);
         }
         nombreEjercicio.setText(ejercicio.getNombreEjercicio());
